@@ -1,16 +1,28 @@
 package com.projects.hospitalManagement.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @ToString
+@Table(
+        name = "patient",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "unique_patient_email", columnNames = "email")
+        },
+        indexes = {
+                @Index(name = "idx_patient_dob", columnList = "dob")
+        }
+)
 public class Patient {
 
     @Id
@@ -19,13 +31,14 @@ public class Patient {
 
     private String name;
 
-    @ToString.Exclude
-    private LocalDate Dob;
+    private LocalDate dob;
 
     private String email;
 
     private String gender;
 
+    private String bloodGroup;
+}
 //    @Override
 //    public String toString() {
 //        return "Patient{" +
@@ -37,4 +50,3 @@ public class Patient {
 //                '}';
 //    }
 
-}
