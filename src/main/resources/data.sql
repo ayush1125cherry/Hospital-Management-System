@@ -1,4 +1,4 @@
-INSERT INTO patient (name, gender, dob, email, blood_group)
+INSERT INTO patient_tbl (name, gender, dob, email, blood_group)
 VALUES
 ('Aarav Sharma','MALE','1990-05-10','aarav.sharma@example.com','O_POSITIVE'),
 ('Diya Patel','FEMALE','1995-08-20','diya.patel@example.com','A_POSITIVE'),

@@ -1,6 +1,7 @@
 package com.projects.hospitalManagement.entity;
 
 
+import com.projects.hospitalManagement.entity.type.BloodGroupType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Table(
-        name = "patient",
+        name = "patient_tbl",
         uniqueConstraints = {
                 @UniqueConstraint(name = "unique_patient_email", columnNames = "email")
         },
@@ -37,7 +38,8 @@ public class Patient {
 
     private String gender;
 
-    private String bloodGroup;
+    @Enumerated(EnumType.STRING)
+    private BloodGroupType bloodGroup;
 }
 //    @Override
 //    public String toString() {
